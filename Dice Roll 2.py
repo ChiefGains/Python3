@@ -1,4 +1,4 @@
-#!bash/bin/env Python3
+#!user/bin/env Python3
 
 """Another dice roller, but more convoluted! This one accepts user input.
     ***However*** - this one does NOT allow the user to choose how many sides the dice have"""
