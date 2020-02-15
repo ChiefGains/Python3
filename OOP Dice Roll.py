@@ -1,4 +1,4 @@
-#!/bash/bin/env Python3
+#!user/bin/env Python3
 
 #This time we're rolling dice using OOP! What fun! How convoluted!
 
