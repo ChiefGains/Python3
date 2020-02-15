@@ -1,5 +1,6 @@
-#We'll give ourselves two different ways to sequence fibonacci numbers: to a number of places, or to a max number
+#!user/bin/env Python3
 
+#We'll give ourselves two different ways to sequence fibonacci numbers: to a number of places, or to a max number
 
 #First, we'll make a function that sequences fibonacci to a max number of places
 
