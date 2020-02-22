@@ -1,0 +1,49 @@
+"""See the amazing game that makes a square in the middle of the screen change colors!"""
+
+#user/bin/env Python3
+
+import pygame
+
+x = 400
+y = 300
+
+pygame.init()
+screen = pygame.display.set_mode((x, y))
+
+#we'll use this variable for indexing later on
+color_value = 0
+
+red = (255, 0, 0)
+
+green = (0, 250, 0)
+
+blue = (0, 0, 250)
+
+#this is a list so that we can iterate through it
+color = [red, blue, green]
+
+running = True
+
+while running:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            mx, my = pygame.mouse.get_pos()
+            if mx in range(180,220) and my in range(130,170):
+                color_value += 1
+                if color_value == 3:
+                    color_value = 0
+
+
+    screen.fill((250, 250, 250))
+    
+    square_color = color[color_value]
+
+    pygame.draw.rect(screen, square_color, pygame.Rect(180, 130, 40, 40))
+
+    pygame.display.flip()
+    #tick() probably isn't a necessary operation for this program, but it sets the frame rate,
+    #and otherwise just keeps things running at a sane speed
+    pygame.time.Clock().tick(30)
