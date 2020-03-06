@@ -17,7 +17,7 @@
 # '[^]' = check for anything *not* contained in that set (re.search([^0-9]) to make sure a string contains something other than digits)
 # '?P<name>' = named group - works like dictionaries (match.group('name'))
 # '?:...' = non-capturing group (doesn't affect group indices, or show up in group())
-# r'(.+)\1' = special sequence that looks for one instance of a repeating wildcard
+# r'(.+)\1' = special sequence that looks for one repetition of a repeating wildcard
 # '\d', '\s', '\w' = digits, whitespace, word characters (unicode) - uppercase means 'not' (e.g. '\D' means 'not a digit')
 # '\A' = start of a string, '\Z' = end of a string, and '\b' represents a word barrier, between words in a string
 
