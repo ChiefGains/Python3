@@ -1,6 +1,7 @@
 import re
 import os
 import importlib
+from random import randint as rand
 
 
 def play():
@@ -9,12 +10,19 @@ def play():
         if choice == '1':
             libs = [x for x in os.listdir('libs')]
             friendly_lib = ', '.join(libs)
-            print('Which madlib would you like to play?')
-            lib = input(friendly_lib)
-            if lib in libs:
+            choice2 = input('1 for random, 2 to choose')
+            if choice2 == '1':
+                lib = libs[rand(0, len(libs)-1)]
                 run_lib(lib)
+            elif choice2 == '2':
+                print('Which madlib would you like to play?')
+                lib = input(friendly_lib)
+                if lib in libs:
+                    run_lib(lib)
+                else:
+                    print('That choice is not available')
             else:
-                print('That choice is not available')
+                print("I didn't get that")
         else:
             quit()
 
@@ -31,7 +39,10 @@ def run_lib(lib):
         prompts = re.findall('\[(.*?)\]', text)
         answers = []
         for prompt in prompts:
-            x = input(f'Please enter a {prompt}')
+            if re.match(r'[^aeiou]', prompt):
+                x = input(f'Please enter a {prompt}')
+            else:
+                x= input(f'Please enter an {prompt}')
             answers.append(x)
 
         i = 0
@@ -45,7 +56,3 @@ def run_lib(lib):
         
 
 play()
-        
-
-
-
