@@ -2,6 +2,7 @@ import re
 import os
 import importlib
 from random import randint as rand
+from pathlib import Path
 
 
 def play():
@@ -29,12 +30,8 @@ def play():
 	
 
 def run_lib(lib):
-
-    madlib_text = ['libs', lib]
-
-    text_path = '\\'.join(madlib_text)
-
-    with open(text_path, 'r') as t:
+    
+    with open(Path('libs', lib), 'r') as t:
         text=t.read()
         prompts = re.findall('\[(.*?)\]', text)
         answers = []
@@ -53,6 +50,13 @@ def run_lib(lib):
             i += 1
 
         print(text)
+
+        save = input('Would you like to save this madlib? 1 for yes/n')
+
+        if save == '1' or 'yes':
+            with open(Path('saves', lib), 'w') as f:
+                f.write(text)
+            
         
 
 play()
