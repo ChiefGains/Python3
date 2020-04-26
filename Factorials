@@ -1,0 +1,20 @@
+#! usr/bin/env Python3
+#Enter a number, and this will give you the result of the factorial,
+#albeit in a classically clunky fashion. But hey, it works, and
+#I'm too tired to make it pretty
+
+def facto():
+    while True:
+        x = input('Enter a number\n')
+        try:
+            x = int(x)
+            i = x
+            while x > 1:
+                x -= 1
+                i = i*x
+            print(i)
+        except:
+            print(f'{x} is not a number')
+
+
+facto()
